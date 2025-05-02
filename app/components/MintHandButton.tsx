@@ -1,33 +1,9 @@
 // MintHandButton.tsx
 // import { useState } from "react";
-import { useAccount, useWriteContract, useWaitForTransactionReceipt, 
-    // useWatchContractEvent 
-} from "wagmi";
+import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import { parseEther } from "viem";
 import type { Log } from "viem";
-
-// Define the contract ABI with proper types
-const HAND_NFT = {
-  address: "0xYourHandNFT" as const,
-  abi: [
-    {
-      "inputs": [{ "name": "to", "type": "address" }],
-      "name": "mint",
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        { "indexed": true, "name": "from", "type": "address" },
-        { "indexed": true, "name": "to", "type": "address" },
-        { "indexed": true, "name": "tokenId", "type": "uint256" }
-      ],
-      "name": "Transfer",
-      "type": "event"
-    }
-  ] as const
-} as const;
+import { OMAHA_CONTRACT } from "../contracts/omaha-contract";
 
 export default function MintHandButton() {
   const { address, isConnected } = useAccount();
@@ -80,7 +56,7 @@ export default function MintHandButton() {
     if (!address) return;
     
     writeContract({
-      ...HAND_NFT,
+      ...OMAHA_CONTRACT,
       functionName: "mint",
       args: [address],
       value: parseEther("0.001"), /* or whatever = $1 */
