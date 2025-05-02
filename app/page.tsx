@@ -22,7 +22,6 @@ import { useEffect, useMemo, useState, useCallback } from "react";
 import { Button } from "./components/DemoComponents";
 import { Icon } from "./components/DemoComponents";
 import MintHandButton from "./components/MintHandButton";
-import FoldButton from "./components/fold-button";
 
 
 export default function App() {
@@ -95,17 +94,36 @@ export default function App() {
           <div>{saveFrameButton}</div>
         </header>
 
-        <MintHandButton />
+        <main className="flex-1 flex flex-col items-center justify-center py-8 px-4">
+          <div className="text-center space-y-6 max-w-md">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-[var(--app-accent)] to-[#0052FF] bg-clip-text text-transparent">
+              Welcome to Onchain Omaha
+            </h1>
+            <div className="mt-4 space-y-6 max-w-2xl">
+            <div className="bg-[var(--app-background)]/50 backdrop-blur-sm rounded-xl p-6 border border-[var(--app-accent)]/20">
+              <p className="text-lg font-medium mb-4">
+                Mint a 5‑card NFT hand for just $1, peek at your cards, then choose:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--app-accent)]">•</span>
+                  <span><strong>Play</strong> – lock your hand, chase the growing pot, and battle up to nine other players.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--app-accent)]">•</span>
+                  <span><strong>Fold</strong> – cash back 90 ¢ and live to fight the next deck.</span>
+                </li>
+              </ul>
+              <p className="text-[var(--app-foreground)]/90">
+                Every time 10 hands lock in, the contract auto‑reveals all cards, crowns the best hand, and ships the entire pot—provably fair, fully on‑chain.
+              </p>
+            </div>
+          </div>
+          </div>
+        </main>
 
-        <footer className="mt-2 pt-4 flex justify-center">
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-[var(--ock-text-foreground-muted)] text-xs"
-            onClick={() => openUrl("https://base.org/builders/minikit")}
-          >
-            Built on Base with MiniKit
-          </Button>
+        <footer className="mt-auto pt-8 pb-4 flex justify-center">
+          <MintHandButton />
         </footer>
       </div>
     </div>
