@@ -144,7 +144,7 @@ export default function MintHandButton() {
     return (
       <button
         disabled
-        className="rounded bg-emerald-600 px-6 py-3 text-white disabled:opacity-40"
+        className="rounded bg-emerald-600 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold"
       >
         Connect wallet to continue
       </button>
@@ -156,7 +156,7 @@ export default function MintHandButton() {
       <button
         disabled={txLoading || confirming}
         onClick={handleApprove}
-        className="rounded bg-emerald-600 px-6 py-3 text-white disabled:opacity-40 w-full text-2xl font-bold"
+        className="rounded bg-emerald-600 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold"
       >
         {txLoading && "Waiting for wallet…"}
         {confirming && "Approving…"}
@@ -169,7 +169,7 @@ export default function MintHandButton() {
     <button
       disabled={txLoading || confirming}
       onClick={handleMint}
-      className="rounded bg-emerald-600 px-6 py-3 text-white disabled:opacity-40 w-full text-2xl font-bold"
+      className="rounded bg-emerald-600 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold"
     >
       {txLoading && "Waiting for wallet…"}
       {confirming && "Minting…"}
