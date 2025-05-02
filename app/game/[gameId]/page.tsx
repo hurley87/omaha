@@ -90,9 +90,6 @@ export default async function GamePage({ params, searchParams }: GamePageProps) 
                         )}
                         {hand.decision === 'pending' && (
                           <div className="space-y-4">
-                            <p className="text-[var(--app-foreground)]/80 text-center mb-4">
-                              Make your decision:
-                            </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                               <PlayButton tokenId={hand.token_id} />
                               <FoldButton 
