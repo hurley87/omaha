@@ -135,11 +135,11 @@ export default function App() {
             </div>
           </div>
         </main>
-
+        <MintHandButton />
         <div className="mt-auto pt-8 pb-4">
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-[var(--app-accent)] to-[#0052FF] rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-            <MintHandButton />
+            
           </div>
         </div>
       </div>
