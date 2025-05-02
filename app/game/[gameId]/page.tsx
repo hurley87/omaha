@@ -36,7 +36,7 @@ export default async function GamePage({ params, searchParams }: GamePageProps) 
           {!hand ? (
             <div className="bg-white rounded-lg shadow p-6 text-center">
               <h2 className="text-2xl font-bold mb-4">No Hand Found</h2>
-              <p className="text-gray-600">You don't have a hand in this game yet.</p>
+              <p className="text-gray-600">{`You don't have a hand in this game yet.`}</p>
             </div>
           ) : (
             <div>
