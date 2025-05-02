@@ -61,3 +61,23 @@ export async function setDecision(tokenId: number, choice: 'play' | 'fold' ) {
   if (error) throw error;
   return data;
 }
+
+/**
+ * Get the most recent pending hand for a user.
+ * 
+ * @param wallet - The wallet address of the player
+ * @returns The most recent pending hand or null if not found
+ */
+export async function getMostRecentPendingHand(wallet: `0x${string}`) {
+  const { data, error } = await supabase
+    .from('hands')
+    .select('token_id, cards, decision, game_id')
+    .eq('player_address', wallet.toLowerCase())
+    .eq('decision', 'pending')
+    .order('game_id', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) throw error;
+  return data;
+}

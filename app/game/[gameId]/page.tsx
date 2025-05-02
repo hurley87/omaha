@@ -1,4 +1,4 @@
-import { getMyHand } from '@/lib/supabase';
+import { getMostRecentPendingHand } from '@/lib/supabase';
 import { notFound } from 'next/navigation';
 import { PlayButton } from '@/app/components/play-button';
 import FoldButton from '@/app/components/fold-button';
@@ -20,7 +20,7 @@ export default async function GamePage({ params, searchParams }: GamePageProps) 
     notFound();
   }
 
-  const hand = await getMyHand(gameId, wallet);
+  const hand = await getMostRecentPendingHand(wallet);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
