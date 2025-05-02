@@ -144,7 +144,9 @@ export default function MintHandButton() {
     return (
       <button
         disabled
-        className="rounded bg-emerald-600 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold"
+        className="relative rounded-lg bg-blue-600/90 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold 
+        shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/30
+        border border-blue-400/20 backdrop-blur-sm"
       >
         Connect wallet to continue
       </button>
@@ -156,7 +158,10 @@ export default function MintHandButton() {
       <button
         disabled={txLoading || confirming}
         onClick={handleApprove}
-        className="rounded bg-emerald-600 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold"
+        className="relative rounded-lg bg-blue-600/90 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold 
+        shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/30
+        border border-blue-400/20 backdrop-blur-sm
+        hover:bg-blue-500 active:bg-blue-700 disabled:hover:bg-blue-600/90"
       >
         {txLoading && "Waiting for wallet…"}
         {confirming && "Approving…"}
@@ -169,7 +174,12 @@ export default function MintHandButton() {
     <button
       disabled={txLoading || confirming}
       onClick={handleMint}
-      className="rounded bg-emerald-600 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold"
+      className="relative rounded-lg bg-blue-600/90 py-8 text-white disabled:opacity-40 w-full text-2xl font-bold 
+      shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/30
+      border border-blue-400/20 backdrop-blur-sm
+      hover:bg-blue-500 active:bg-blue-700 disabled:hover:bg-blue-600/90
+      before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-r before:from-blue-400/0 before:via-blue-400/10 before:to-blue-400/0
+      before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000"
     >
       {txLoading && "Waiting for wallet…"}
       {confirming && "Minting…"}

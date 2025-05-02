@@ -109,7 +109,7 @@ export default function App() {
                   Mint a 5‑card NFT hand for just $1, peek at your cards, then choose:
                 </p>
                 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-2 mb-6 text-lg">
                   <div className="flex items-start gap-3 p-4 rounded-xl bg-[var(--app-accent)]/5 hover:bg-[var(--app-accent)]/10 transition-colors">
                     <div className="w-8 h-8 rounded-full bg-[var(--app-accent)]/20 flex items-center justify-center flex-shrink-0">
                       <Icon name="arrow-right" size="sm" className="text-[var(--app-accent)]" />
