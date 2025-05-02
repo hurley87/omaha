@@ -4,6 +4,24 @@ import { PlayButton } from '@/app/components/play-button';
 import FoldButton from '@/app/components/fold-button';
 import { Icon } from '@/app/components/DemoComponents';
 
+// Helper function to convert card code to display format
+const formatCard = (card: string): { value: string; suit: string } => {
+  const value = card.slice(0, -1);
+  const suit = card.slice(-1).toLowerCase();
+  
+  const suitSymbols: Record<string, string> = {
+    'c': '♣',
+    'd': '♦',
+    'h': '♥',
+    's': '♠'
+  };
+
+  return {
+    value,
+    suit: suitSymbols[suit] || suit
+  };
+};
+
 interface GamePageProps {
   params: {
     gameId: string;
@@ -64,14 +82,19 @@ export default async function GamePage({ params, searchParams }: GamePageProps) 
 
                   {/* Cards Display */}
                   <div className="grid grid-cols-5 gap-4">
-                    {hand.cards.map((card: string, index: number) => (
-                      <div
-                        key={index}
-                        className="aspect-[2.5/3.5] bg-[var(--app-accent)]/5 hover:bg-[var(--app-accent)]/10 rounded-xl p-4 flex items-center justify-center border border-[var(--app-accent)]/20 shadow-sm transition-all duration-300 transform hover:-translate-y-1"
-                      >
-                        <span className="text-xl font-bold text-[var(--app-accent)]">{card}</span>
-                      </div>
-                    ))}
+                    {hand.cards.map((card: string, index: number) => {
+                      const { value, suit } = formatCard(card);
+                      return (
+                        <div
+                          key={index}
+                          className="aspect-[2.5/3.5] bg-[var(--app-accent)]/5 hover:bg-[var(--app-accent)]/10 rounded-xl p-4 flex items-center justify-center border border-[var(--app-accent)]/20 shadow-sm transition-all duration-300 transform hover:-translate-y-1"
+                        >
+                          <span className="text-xl font-bold text-[var(--app-accent)]">
+                            {value}{suit}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   {/* Decision Section */}
