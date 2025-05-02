@@ -1,7 +1,7 @@
 // MintHandButton.tsx
 // import { useState } from "react";
 import { useAccount, useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { parseEther } from "viem";
+// import { parseEther } from "viem";
 import type { Log } from "viem";
 import { OMAHA_CONTRACT } from "../contracts/omaha-contract";
 
@@ -57,9 +57,8 @@ export default function MintHandButton() {
     
     writeContract({
       ...OMAHA_CONTRACT,
-      functionName: "mint",
-      args: [address],
-      value: parseEther("0.001"), /* or whatever = $1 */
+      functionName: "buy_hand",
+      args: [BigInt(0), BigInt(0), "https://pink-changing-earwig-765.mypinata.cloud/ipfs/bafkreifpjmf5m4n77e3cx5gsaxmqdtjfbg4na3ftwvfvvvd3ezwb6nsbky"],
     });
   };
 
