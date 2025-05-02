@@ -104,7 +104,7 @@ export default function FoldButton({ tokenId, gameId }: FoldButtonProps) {
     <button
       disabled={txLoading || confirming}
       onClick={handleFold}
-      className="rounded bg-red-600 px-6 py-3 text-white disabled:opacity-40"
+      className="rounded bg-red-600 w-full text-2xl font-bold py-8 text-white disabled:opacity-40"
     >
       {txLoading && "Waiting for wallet…"}
       {confirming && "Folding…"}

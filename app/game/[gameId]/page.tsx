@@ -52,7 +52,7 @@ export default async function GamePage({ params, searchParams }: GamePageProps) 
                 </div>
               </div>
             ) : (
-              <div className="bg-[var(--app-background)]/50 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-8">
+              <div className="bg-[var(--app-background)]/50 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <div className="space-y-6">
                   {/* Token ID Section */}
                   <div className="flex items-center justify-between">
