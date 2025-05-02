@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface PlayButtonProps {
   tokenId: number;
@@ -8,6 +9,7 @@ interface PlayButtonProps {
 
 export function PlayButton({ tokenId }: PlayButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handlePlay = async () => {
     try {
@@ -24,8 +26,8 @@ export function PlayButton({ tokenId }: PlayButtonProps) {
         throw new Error('Failed to set decision');
       }
 
-      // Refresh the page to show updated state
-      window.location.reload();
+      // redirect to /thanks/play
+      router.push('/thanks/play');
     } catch (error) {
       console.error('Error setting decision:', error);
     } finally {

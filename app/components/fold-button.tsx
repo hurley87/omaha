@@ -17,6 +17,8 @@ export default function FoldButton({ tokenId, gameId }: FoldButtonProps) {
 
   const { writeContract, data: hash, isPending: txLoading, error: txError } = useWriteContract();
 
+  console.log('txError', txError);
+
   // Wait for transaction receipt
   const { isLoading: confirming, isSuccess, data: receipt } = useWaitForTransactionReceipt({
     hash,
@@ -66,7 +68,7 @@ export default function FoldButton({ tokenId, gameId }: FoldButtonProps) {
           return;
         }
 
-        const { game_id, user, token_id, refund_amount } = decodedEvent.args;
+        const {token_id } = decodedEvent.args;
 
         // Notify backend to update the hand's decision
         await fetch('/api/decision', {
@@ -77,8 +79,8 @@ export default function FoldButton({ tokenId, gameId }: FoldButtonProps) {
           body: JSON.stringify({ tokenId: token_id, decision: 'fold' }),
         });
 
-        // Refresh the page to show updated state
-        router.refresh();
+        // redirect to /thanks/fold
+        router.push('/thanks/fold');
       } catch (error) {
         console.error('Error processing HandFolded event from receipt:', error);
       }
