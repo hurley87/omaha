@@ -76,7 +76,10 @@ export default function FoldButton({ tokenId, gameId }: FoldButtonProps) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ tokenId: token_id, decision: 'fold' }),
+          body: JSON.stringify({ 
+            tokenId: token_id.toString(), 
+            decision: 'fold' 
+          }),
         });
 
         // redirect to /thanks/fold

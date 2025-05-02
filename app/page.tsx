@@ -22,6 +22,8 @@ import { useEffect, useMemo, useState, useCallback } from "react";
 import { Button } from "./components/DemoComponents";
 import { Icon } from "./components/DemoComponents";
 import MintHandButton from "./components/MintHandButton";
+import FoldButton from "./components/fold-button";
+
 
 export default function App() {
   const { setFrameReady, isFrameReady, context } = useMiniKit();
