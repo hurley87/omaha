@@ -113,7 +113,7 @@ export default function MintHandButton() {
         });
 
         // redirect to /game/game_id
-        router.push(`/game/${game_id.toString()}`);
+        router.push(`/game/${game_id.toString()}?wallet=${user}`);
       } catch (error) {
         console.error('Error processing HandBought event from receipt:', error);
       }
