@@ -3,7 +3,6 @@
 import {
   useMiniKit,
   useAddFrame,
-  useOpenUrl,
 } from "@coinbase/onchainkit/minikit";
 import {
   Name,
@@ -29,7 +28,6 @@ export default function App() {
   const [frameAdded, setFrameAdded] = useState(false);
 
   const addFrame = useAddFrame();
-  const openUrl = useOpenUrl();
 
   useEffect(() => {
     if (!isFrameReady) {
