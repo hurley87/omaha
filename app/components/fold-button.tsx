@@ -69,16 +69,12 @@ export default function FoldButton({ tokenId, gameId }: FoldButtonProps) {
         const { game_id, user, token_id, refund_amount } = decodedEvent.args;
 
         // Notify backend to update the hand's decision
-        await fetch("/api/fold-success", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            gameId: game_id.toString(),
-            tokenId: token_id.toString(),
-            txHash: hash,
-            player: user,
-            refundAmount: refund_amount.toString()
-          }),
+        await fetch('/api/decision', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ tokenId: token_id, decision: 'fold' }),
         });
 
         // Refresh the page to show updated state

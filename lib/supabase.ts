@@ -49,10 +49,10 @@ export async function getMyHand(gameId: number, wallet: `0x${string}`) {
  * Set a player's decision for their hand.
  * 
  * @param tokenId - The token ID of the hand
- * @param choice - The decision to make ('play', 'fold', or 'call')
+ * @param choice - The decision to make ('play', 'fold')
  * @returns The result of the RPC call
  */
-export async function setDecision(tokenId: number, choice: 'play' | 'fold' | 'call') {
+export async function setDecision(tokenId: number, choice: 'play' | 'fold' ) {
   const { data, error } = await supabase.rpc('set_decision', {
     _token_id: tokenId,
     _choice: choice
