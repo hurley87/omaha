@@ -82,8 +82,6 @@ export default function MintHandButton() {
           topics: handBoughtEvent.topics,
         });
 
-        console.log('decodedEvent', decodedEvent);
-
         // Type guard to ensure we have the correct event type
         if (decodedEvent.eventName !== 'HandBought') {
           console.error('Decoded event is not HandBought');
